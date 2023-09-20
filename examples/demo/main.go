@@ -1,11 +1,12 @@
 package main
 
 import (
-	"github.com/conejoninja/gopher-helmet/fonts"
 	"image/color"
 	"math/rand"
 	"strconv"
 	"time"
+
+	"github.com/conejoninja/gopher-helmet/fonts"
 	"tinygo.org/x/tinyfont"
 
 	"tinygo.org/x/drivers/scd4x"
@@ -60,50 +61,48 @@ var (
 	antennaColor color.RGBA
 
 	msgs = [5]Msg{
-		{"WWW.TINYGO.ORG", gopherhelmet.Red},
-		{"ASK ME ABOUT GOPHER BADGES", gopherhelmet.Blue},
+		{"TINYGO.ORG", gopherhelmet.Red},
+		{"ASK ME ABOUT GOBADGE", gopherhelmet.Blue},
 		{"@DEADPROGRAM TECHNOLOGIST FOR HIRE", gopherhelmet.Magenta},
-		{"TALK - TINYGO: GETTING THE UPPER HEN BY DONIA CHAIEHLOUDJ", gopherhelmet.Yellow},
+		{"TALK: A SMALL UPDATE ON TINYGO", gopherhelmet.Yellow},
 		{"FREE PINS AND STICKERS", gopherhelmet.Green},
 	}
 	visorStep = 0
 
 	msgColored = gopherhelmet.TextColorSequence{
-		{Text: "WWW", Color: gopherhelmet.Green},
-		{Text: ".", Color: gopherhelmet.Yellow},
 		{Text: "TINYGO", Color: gopherhelmet.Blue},
 		{Text: ".", Color: gopherhelmet.Yellow},
 		{Text: "ORG", Color: gopherhelmet.Magenta},
 	}
 
 	msgColoredRonTalk = gopherhelmet.TextColorSequence{
-		{Text: "LOOKING", Color: gopherhelmet.Green},
-		{Text: " FOR ", Color: gopherhelmet.Yellow},
-		{Text: "FUNDING", Color: gopherhelmet.Blue},
+		{Text: "GO ", Color: gopherhelmet.Green},
+		{Text: "FOR ", Color: gopherhelmet.Yellow},
+		{Text: "SMALL ", Color: gopherhelmet.Blue},
+		{Text: "PLACES", Color: gopherhelmet.Red},
 	}
 
-	msgColoredConejoTalk = gopherhelmet.TextColorSequence{
+	msgColoredGophercon = gopherhelmet.TextColorSequence{
 		{Text: "GOPHER", Color: gopherhelmet.Green},
-		{Text: "CON", Color: gopherhelmet.Yellow},
-		{Text: "EU ", Color: gopherhelmet.Blue},
-		{Text: " SOOO ", Color: gopherhelmet.Red},
-		{Text: " COOL", Color: gopherhelmet.Magenta},
+		{Text: "CON ", Color: gopherhelmet.Yellow},
+		{Text: "2023 ", Color: gopherhelmet.Blue},
+		{Text: "SAN ", Color: gopherhelmet.Red},
+		{Text: "DIEGO", Color: gopherhelmet.Magenta},
 	}
 
 	msgLaunch = gopherhelmet.TextColorSequence{
-		{Text: "LAUNCH !! ", Color: gopherhelmet.Green},
-		{Text: "GO ", Color: gopherhelmet.Yellow},
-		{Text: "TINY", Color: gopherhelmet.Blue},
-		{Text: "GLOBO ", Color: gopherhelmet.Red},
-		{Text: "GO", Color: gopherhelmet.Magenta},
+		{Text: "A SMALL ", Color: gopherhelmet.Green},
+		{Text: "UPDATE ", Color: gopherhelmet.Yellow},
+		{Text: "ABOUT ", Color: gopherhelmet.Blue},
+		{Text: "TINYGO", Color: gopherhelmet.Red},
 	}
 
 	msgColoredTinyGlobo = gopherhelmet.TextColorSequence{
-		{Text: "TINY", Color: gopherhelmet.Green},
-		{Text: "GLOBO ", Color: gopherhelmet.Yellow},
-		{Text: "LAUNCH PARTY ", Color: gopherhelmet.Blue},
-		{Text: "TODAY 12:30 ", Color: gopherhelmet.Red},
-		{Text: "FRONT DOOR", Color: gopherhelmet.Magenta},
+		{Text: "TINYGO", Color: gopherhelmet.Green},
+		{Text: "v0.30 ", Color: gopherhelmet.Yellow},
+		{Text: "IS OUT ", Color: gopherhelmet.Blue},
+		{Text: "GO GET ", Color: gopherhelmet.Red},
+		{Text: "IT NOW", Color: gopherhelmet.Magenta},
 	}
 )
 
@@ -191,7 +190,7 @@ func visorLoop() {
 				co2Marquee()
 				break
 			case 2:
-				visor.MarqueeColored(msgColoredConejoTalk)
+				visor.MarqueeColored(msgColoredGophercon)
 				//visor.Marquee(msgs[1].text, msgs[1].c)
 				break
 			case 3:
